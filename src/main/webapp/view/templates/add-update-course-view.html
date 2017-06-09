@@ -1,0 +1,15 @@
+<form class="form-inline">
+  <div ng-if="action==='update-course'" class="form-group">
+    <label>Id</label>
+    <input class="form-control" type="text" name="id" ng-model="course.id" readonly />
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" name="name" ng-model="course.name"/>
+  </div>
+
+	<button ng-if="action==='add-course'" class="btn btn-default" ng-click="MainCtrl.addCourseAction(course.name)">Add</button>
+
+	<button ng-if="action==='update-course'" class="btn btn-default" ng-click="MainCtrl.updateCourseAction(course.id, course.name)">Update</button>
+</form>

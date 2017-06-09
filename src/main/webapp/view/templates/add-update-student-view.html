@@ -1,0 +1,20 @@
+<form class="form-inline">
+  <div ng-if="action==='update-student'" class="form-group">
+    <label>Id</label>
+    <input class="form-control" type="text" name="id" ng-model="student.id" readonly />
+  </div>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input class="form-control" type="text" name="name" ng-model="student.name"/>
+  </div>
+
+  <div class="form-group">
+    <label>Lastname</label>
+    <input class="form-control" type="text" name="lastname" ng-model="student.lastname"/>
+  </div>
+
+	<button ng-if="action==='add-student'" class="btn btn-default" ng-click="MainCtrl.addStudentAction(student.name, student.lastname)">Add</button>
+
+	<button ng-if="action==='update-student'" class="btn btn-default" ng-click="MainCtrl.updateStudentAction(student.id, student.name, student.lastname)">Update</button>
+</form>

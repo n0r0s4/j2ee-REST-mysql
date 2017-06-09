@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ProvenoodleApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>Provenoodle</title>
+	
+	<!--css-->
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
+
+	<!--Bootstrap css-->
+	<link href="vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	
+  <!--Bootstrap js-->
+  <script src="vendors/bootstrap/js/bootstrap.min.js" type="text/javascript" xml:space="preserve"></script>
+
+  <!--Angular-->
+  <script src="vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+
+  <!-- app -->
+    <script src="js/model/filmType.js" type="text/javascript" xml:space="preserve"></script>
+    <script src="js/model/film.js" type="text/javascript" xml:space="preserve"></script>
+
+    <script src="js/app.js" type="text/javascript" xml:space="preserve"></script>
+	 <script src="js/controller/studentController.js" type="text/javascript" xml:space="preserve"></script>
+  <script src="js/controller/mainController.js" type="text/javascript" xml:space="preserve"></script>
+ 
+
+</head>
+<body id="main-ctrl" ng-controller="MainController as MainCtrl" ng-init="MainCtrl.initialize()">
+
+ <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" ng-click="action='home'">Provenoodle</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ng-click="MainCtrl.studentsView()" ng-class="{'active' : isAction('students')}"><a href="#">Students <span class="sr-only">(current)</span></a></li>
+        <li ng-click="MainCtrl.coursesView()" ng-class="{'active' : isAction('courses')}"><a href="#">Courses</a></li>
+        <!-- <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" uib-dropdown-toggle role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu"  uib-dropdown-menu >
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li> -->
+      </ul>
+      <!-- <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>-->
+
+    </div><!-- /.navbar-collapse -->
+      </div>
+    </nav> 
+
+	<div class="jumbotron">
+		<div class="container">
+      <div class="" ng-show="action==='home'">
+  			<h1>Provenoodle <img src="images/logo.jpg" class="img-responsive img-circle pull-right col-md-4"/></h1>
+  			<h2>We don't like spaghetti code, we prefer Provenoodle. </h2>
+  			<h3>A place to share code, but never during the exam!</h3>
+      </div>
+		  <h1 ng-show="action!=='home'">{{getActionToken()}}</h1>
+    </div>
+    
+	</div>
+
+  <div class="container">
+
+		<div ng-show="action==='students'">
+			<students-view></students-view>
+		</div>
+
+    <div ng-show="action==='student'">
+      <student-view></student-view>
+    </div>
+
+    <div ng-show="action==='add-student' || action==='update-student'">
+      <add-update-student-view></add-update-student-view>
+    </div>
+
+    <div ng-show="action==='delete-student'">
+      <delete-student-view></delete-student-view>
+    </div>
+
+		<div ng-show="action==='courses'">
+			<courses-view></courses-view>
+		</div>
+    
+    <div ng-show="action==='course'">
+      <course-view></course-view>
+    </div>
+
+    <div ng-show="action==='add-course' || action==='update-course'">
+      <add-update-course-view></add-update-course-view>
+    </div>
+
+    <div ng-show="action==='delete-course'">
+      <delete-course-view></delete-course-view>
+    </div>
+
+		<footer>
+      <br/><p>© 2017 DAW-M06, Institut Provençana.</p>
+    </footer>
+  </div>
+</body>
+</html>
+
+   

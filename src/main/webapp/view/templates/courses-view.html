@@ -1,0 +1,18 @@
+<button class="btn btn-default pull-right" ng-click="MainCtrl.addCourseView()">Add course</button>
+<div class="clearfix"></div><br/>
+<div ng-repeat="course in courses">
+	<div class="panel panel-default">
+		<div class="panel-body course-name-lnk" ng-mouseenter="options=true" ng-mouseleave="options=false">
+		<a href="#" ng-click="MainCtrl.courseView(course.id)">{{course.name}}</a>
+			<ul class="list-inline pull-right">
+				<li>
+					<button class="course-delete-lnk btn btn-xs btn-danger" ng-click="MainCtrl.deleteCourseView(course.id)" ng-show="options"><span class="glyphicon glyphicon-trash "></span></button>
+				</li>
+
+				<li>
+					<button class="course-update-lnk btn btn-xs btn-default" ng-click="MainCtrl.updateCourseView(course.id)" ng-show="options"><span class="glyphicon glyphicon-pencil"></span></button>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

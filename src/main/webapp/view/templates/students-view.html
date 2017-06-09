@@ -1,0 +1,33 @@
+<button class="btn btn-default pull-right" ng-click="MainCtrl.addStudentView()">Add student</button>
+<div class="clearfix"></div><br/>
+<div ng-repeat="student in students">
+	<div class="panel panel-default">
+		<div class="panel-body student-name-lnk" ng-mouseenter="options=true" ng-mouseleave="options=false">
+		<a href="#" ng-click="MainCtrl.studentView(student.id)">{{student.name}} {{student.lastname}}</a>
+			<ul class="list-inline pull-right">
+				<li>
+					<button class="student-delete-lnk btn btn-xs btn-danger" ng-click="MainCtrl.deleteStudentView(student.id)" ng-show="options"><span class="glyphicon glyphicon-trash "></span></button>
+				</li>
+
+				<li>
+					<button class="student-update-lnk btn btn-xs btn-default" ng-click="MainCtrl.updateStudentView(student.id)" ng-show="options"><span class="glyphicon glyphicon-pencil"></span></button>
+				</li>
+			</ul>
+		</div>
+		<div class="panel-footer">
+
+			<ul class="list-inline" ng-show="isArray(student.courses)">
+				<li class="course-label" ng-repeat="course in student.courses">
+					<span class="label label-default" ng-click="MainCtrl.courseView(course.id)">{{course.name}}</span>
+				</li>
+			</ul>
+			<ul class="list-inline" ng-show="!isArray(student.courses)">
+				<li class="course-label">
+					<span class="label label-default" ng-click="MainCtrl.courseView(student.courses.id)">{{student.courses.name}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- http://stackoverflow.com/questions/30172013/angularjs-override-ng-show-ng-hide-on-hover -->

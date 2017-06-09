@@ -1,0 +1,13 @@
+<h1>
+{{student.name}} {{student.lastname}} 
+</h1>
+
+<ul class="list-inline pull-right">
+	<li>
+		<button ng-click="MainCtrl.deleteStudentView(student.id)" class="btn btn-danger pull-right"><span class="glyphicon glyphicon-trash"></span>Delete</button>
+	</li>
+	<li>
+		<button ng-click="MainCtrl.updateStudentView(student.id)" class="btn btn-default pull-right"><span class="glyphicon glyphicon-pencil"></span>Update</button>
+	</li>
+</ul>
+

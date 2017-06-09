@@ -1,0 +1,15 @@
+/* * {  clear: both; margin: 5px; padding: 5px;  } */ 
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.student-name-lnk, .student-delete-lnk, .student-update-lnk,
+.course-name-lnk, .course-delete-lnk, .course-update-lnk, .course-label {
+	cursor: pointer;
+}
+
